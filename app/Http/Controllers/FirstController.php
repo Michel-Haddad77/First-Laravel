@@ -57,4 +57,11 @@ class FirstController extends Controller
 
         echo json_encode($grouped_students);
     }
+
+    //Nominee function
+    public function nominee(){
+        $students = array("Pablo","Charbel","Tony", "Leila", "Mansour");
+        $random_index = rand(0,sizeof($students));
+        echo "Hilda: And the nominee is... " . $students[$random_index];
+    }
 }
