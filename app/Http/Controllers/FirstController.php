@@ -15,5 +15,23 @@ class FirstController extends Controller
         $message = "Since 14 April 1732 " . $time_since_1970 + $seconds_difference . "secs have passed!!";
         echo $message;
 
+        // return response()->json([
+        //     "status" => "Success",
+        //     "message" => $message
+        // ], 200);
+    }
+
+    //function that outputs how many palindromes in the arrays
+    public function isPalindrome(){
+        $strs = array("civic","abcba","toyota");
+        $count = 0;
+
+        foreach ($strs as $value){
+            if ($value == strrev($value)){
+                $count++;
+            }
+        }
+
+        echo "there is/are " . $count ." palindrome(s) in the array";
     }
 }
