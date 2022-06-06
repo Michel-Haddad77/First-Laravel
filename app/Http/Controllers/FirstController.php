@@ -61,7 +61,7 @@ class FirstController extends Controller
     //Nominee function
     public function nominee(){
         $students = array("Pablo","Charbel","Tony", "Leila", "Mansour");
-        $random_index = rand(0,sizeof($students));
+        $random_index = rand(0,sizeof($students)-1);
         return "Hilda: And the nominee is... " . $students[$random_index];
     }
 
@@ -75,5 +75,19 @@ class FirstController extends Controller
         $decoded  =json_decode($result, true);
 
         return $decoded["attachments"][0]["text"];
+    }
+
+    public function beerRecipe(){
+        $url = "https://api.punkapi.com/v2/beers";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        $result = curl_exec($ch);
+        $decoded  = json_decode($result, true);
+        
+        $random_index =  rand(0,sizeof($decoded)-1);
+
+        return $decoded[$random_index]["method"];
     }
 }

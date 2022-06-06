@@ -24,3 +24,5 @@ Route::get('/grouped', [FirstController::class, 'groupBy2'])->name("Group-By-2")
 Route::get('/nominee', [FirstController::class, 'nominee'])->name("Nominee");
 
 Route::get('/joke', [FirstController::class, 'dadJoke'])->name("Dad-Joke");
+
+Route::get('/beer', [FirstController::class, 'beerRecipe'])->name("Beer-Recipe");
