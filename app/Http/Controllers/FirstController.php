@@ -62,6 +62,18 @@ class FirstController extends Controller
     public function nominee(){
         $students = array("Pablo","Charbel","Tony", "Leila", "Mansour");
         $random_index = rand(0,sizeof($students));
-        echo "Hilda: And the nominee is... " . $students[$random_index];
+        return "Hilda: And the nominee is... " . $students[$random_index];
+    }
+
+    public function dadJoke(){
+        $url = "https://icanhazdadjoke.com/slack";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        $result = curl_exec($ch);
+        $decoded  =json_decode($result, true);
+
+        return $decoded["attachments"][0]["text"];
     }
 }
