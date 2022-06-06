@@ -34,4 +34,27 @@ class FirstController extends Controller
 
         echo "there is/are " . $count ." palindrome(s) in the array";
     }
+
+    //function that groups students in 2
+    public function groupBy2(){
+        $students = array("Michel","Charbel","Tony", "Leila", "Mansour");
+        $count = 0;
+        $grouped_students = array();
+        $temp = array();
+
+        foreach($students as $student){
+            if ($count < 2){
+                array_push($temp,$student);
+                $count++;
+            }else{
+                array_push($grouped_students,$temp);
+                $temp = array();
+                array_push($temp,$student);
+                $count = 1;
+            }
+        }
+        array_push($grouped_students,$temp);
+
+        echo json_encode($grouped_students);
+    }
 }

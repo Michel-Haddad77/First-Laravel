@@ -18,3 +18,5 @@ use App\Http\Controllers\FirstController;
 Route::get('/', [FirstController::class, 'secondsSince'])->name("seconds-since");
 
 Route::get('/palindrome', [FirstController::class, 'isPalindrome'])->name("how-many-palindromes");
+
+Route::get('/grouped', [FirstController::class, 'groupBy2'])->name("Group-By-2");
